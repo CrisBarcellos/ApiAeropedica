@@ -36,6 +36,7 @@ namespace AP.Presentation
             });
             services.AddSingleton<IPassageiro, PassageiroPersistence>();
             services.AddSingleton<IAeroporto, AeroportoPersistence>();
+            services.AddSingleton<IUF, UFPersistence>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
