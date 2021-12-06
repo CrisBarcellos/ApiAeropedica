@@ -8,7 +8,7 @@ namespace AP.Entities
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [Range(0, int.MaxValue, ErrorMessage = "Informe um número inteiro válido")]
-        public int cd_psgr { get; set; }
+        public decimal cd_psgr { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [MaxLength(30, ErrorMessage = "O campo {0} deve ter no máximo {1} carracteres")]

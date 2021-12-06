@@ -16,7 +16,7 @@ namespace AP.Data
         protected SqlTransaction Tr;
         protected void OpenConnection()
         {   
-            Con = new SqlConnection("Data Source=prd-sql-avantti.kxc.com.br;Initial Catalog=AEROPEDICA;Persist Security Info=True;User ID=prisma;Password=avanttisql;MultipleActiveResultSets=True;");
+            Con = new SqlConnection("Data Source=34.151.197.105;Initial Catalog=AEROPEDICA;Persist Security Info=True;User ID=sqlserver;Password=270298cm");
             Con.Open();
         }
     }
