@@ -56,7 +56,7 @@ namespace AP.Presentation.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Não foi Possível Cadastrar as Rotas!");
+                return StatusCode(500, "Não foi Possível Cadastrar a Rota!");
             }
         }
 

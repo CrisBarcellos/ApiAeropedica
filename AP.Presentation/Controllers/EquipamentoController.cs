@@ -57,7 +57,7 @@ namespace AP.Presentation.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Não foi Possível Cadastrar os Equipamentos!");
+                return StatusCode(500, "Não foi Possível Cadastrar o Equipamento!");
             }
         }
 

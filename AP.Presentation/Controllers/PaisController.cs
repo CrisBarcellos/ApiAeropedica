@@ -56,7 +56,7 @@ namespace AP.Presentation.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Não foi Possível Cadastrar os Paises!");
+                return StatusCode(500, "Não foi Possível Cadastrar o Pais!");
             }
         }
 

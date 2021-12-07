@@ -18,7 +18,7 @@ namespace AP.Data.Persistence
             Cmd = new SqlCommand("INSERT INTO ITR_RESV VALUES(@CD_PSGR, @NR_VOO, @DT_SAIDA_VOO, @PC_DESC_PASG)", Con);
             Cmd.Parameters.AddWithValue("@CD_PSGR", r.cd_psgr);
             Cmd.Parameters.AddWithValue("@NR_VOO", r.nr_voo);
-            Cmd.Parameters.AddWithValue("@DT_SAIDA_VOO", r.dt_saida_voo);
+            Cmd.Parameters.AddWithValue("@DT_SAIDA_VOO", Convert.ToDateTime(r.dt_saida_voo).ToString("yyyy/MM/dd"));
             Cmd.Parameters.AddWithValue("@PC_DESC_PASG", r.pc_desc_pasg);
 
             Cmd.ExecuteNonQuery();
