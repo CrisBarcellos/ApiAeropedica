@@ -40,6 +40,7 @@ namespace AP.Presentation
             services.AddSingleton<IPais, PaisPersistence>();
             services.AddSingleton<IRota, RotaPersistence>();
             services.AddSingleton<IReserva, ReservaPersistence>();
+            services.AddSingleton<IEquipamento, EquipamentoPersistence>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
