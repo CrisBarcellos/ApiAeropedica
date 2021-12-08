@@ -11,6 +11,7 @@ namespace AP.Data.Interface
     {
         public Task Cadastrar(Voo v);
         public List<Voo> Listar();
+        public List<ListaVoo> ListarDetalhado();
         public List<Voo> ListarPorId(decimal nr_voo, string data);
         public List<ListaVoo> ListarPorCidade(string data, string origem, string destino);
         public Task Deletar(decimal nr_voo, string data);

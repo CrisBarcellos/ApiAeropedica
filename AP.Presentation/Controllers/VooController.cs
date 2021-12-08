@@ -33,6 +33,19 @@ namespace AP.Presentation.Controllers
             }
         }
 
+        [HttpGet, Route("ListarDetalhado")]
+        public ActionResult<List<ListaVoo>> ListarDetalhado()
+        {
+            try
+            {
+                return VooPersistence.ListarDetalhado();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Não foi Possível Listar os Voos!");
+            }
+        }
+
         [HttpGet, Route("ListarPorId")]
         public ActionResult<List<Voo>> ListarPorId(decimal nr_voo, string data)
         {

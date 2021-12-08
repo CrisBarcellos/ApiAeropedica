@@ -55,6 +55,41 @@ namespace AP.Data.Persistence
             return lista;
         }
 
+        public List<ListaVoo> ListarDetalhado()
+        {
+            OpenConnection();
+
+            List<ListaVoo> lista = new List<ListaVoo>();
+
+            string query = @"SELECT TOP 100 V.NR_VOO, ISNULL(V.DT_SAIDA_VOO, '') AS DT_SAIDA_VOO, UFO.NM_UF AS ORIGEM, UFD.NM_UF AS DESTINO, R.VR_PASG AS PRECO, AO.NM_CIDD AS AER_ORIGEM, AD.NM_CIDD AS AER_DESTINO
+                           FROM ITR_ROTA_VOO R
+                           LEFT JOIN ITR_VOO V ON(R.NR_ROTA_VOO = V.NR_ROTA_VOO)
+                           LEFT JOIN ITR_ARPT AO ON(R.CD_ARPT_ORIG = AO.CD_ARPT) 
+                           LEFT JOIN ITR_UF UFO ON (AO.SG_UF = UFO.SG_UF)
+                           LEFT JOIN ITR_ARPT AD ON(R.CD_ARPT_DEST = AD.CD_ARPT) 
+                           LEFT JOIN ITR_UF UFD ON (AD.SG_UF = UFD.SG_UF)";
+
+            Cmd = new SqlCommand(query, Con);
+
+            Dr = Cmd.ExecuteReader();
+
+            while (Dr.Read())
+            {
+                lista.Add(new ListaVoo()
+                {
+                    nr_voo = TratamentoNull.CheckNullFromDB<decimal>(Dr["NR_VOO"]),
+                    dt_saida = Convert.ToDateTime(Dr["DT_SAIDA_VOO"]).ToString("dd/MM/yyyy"),
+                    cidade_origem = TratamentoNull.CheckNullFromDB<string>(Dr["ORIGEM"]),
+                    cidade_destino = TratamentoNull.CheckNullFromDB<string>(Dr["DESTINO"]),
+                    preco = TratamentoNull.CheckNullFromDB<decimal>(Dr["PRECO"]),
+                    aer_origem = TratamentoNull.CheckNullFromDB<string>(Dr["AER_ORIGEM"]),
+                    aer_destino = TratamentoNull.CheckNullFromDB<string>(Dr["AER_DESTINO"])
+                });
+            }
+
+            return lista;
+        }
+
         public List<Voo> ListarPorId(decimal nr_voo, string data)
         {
             OpenConnection();
